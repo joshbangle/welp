@@ -1,4 +1,10 @@
 @import 'bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i&display=swap');
+
+body{
+  background: image_url('houndstooth-pattern.png');
+  font-family: 'Roboto Condensed', sans-serif;
+}
 
 .booyah-box {
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -10,8 +16,13 @@
   margin-top: 10px;
   margin-bottom: 15px;
   padding: 20px;
+  font-size: 1.2em;
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
+}
+.navbar {
+  background: image_url('prism.png');
+  box-shadow: 0px 2px 3px grey;
 }
