@@ -1,10 +1,9 @@
-
-<h1>Welcome to my badass web page</h1>
-<% @places.each do |place| %>
 <div class="container">
-<h1><%= place.name %></h1>
-<i><%= place.address %></i>
-<p><%= place.description %></p>
+  <% @places.each do |place| %>
+    <div class="booyah-box col-6 offset-3">
+      <h1><%= place.name %></h1>
+      <i><%= place.address %></i>
+      <p><%= place.description %></p>
+    </div>
+  <% end %>
 </div>
-<hr />
-<% end %>
