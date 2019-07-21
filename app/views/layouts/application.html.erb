@@ -26,6 +26,12 @@
           </ul>
         </div>
       </nav>
+    <div class="d-flex justify-content-center page-buttons">
+      <%= paginate @places %>
+    </div>
     <%= yield %>
+    <div class="d-flex justify-content-center page-buttons">
+      <%= paginate @places %>
+    </div>
   </body>
 </html>
