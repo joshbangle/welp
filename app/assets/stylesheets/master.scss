@@ -1,6 +1,7 @@
 @import 'bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Gothic+A1:400,700&display=swap');
+@import "font-awesome";
 
 body{
   background: image_url('houndstooth-pattern.png');
@@ -31,19 +32,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-inverse .navbar-brand {
   font-family: 'Gothic A1', sans-serif;
-  font-size: 1.6em;
+  font-size: 1.5em;
   margin-left: 15px;
   padding: 0px;
   color: #AFFF5A;
 }
-.welp-w {
-  font-family: 'Gothic A1', sans-serif;
-  font-size: 1.7em;
-  font-weight: bold;
-  letter-spacing: -2px;
-  padding: 0px;
-}
+
 .page-buttons {
   padding-top: 20px;
   padding-bottom: 0px;
+}
+.welp-w {
+  font-size: 1.7em;
+  font-weight: bold;
+  padding: 0px;
 }
