@@ -39,21 +39,23 @@
                   Log in!
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                  <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary' %>
+                  <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary login-dropdown' %>
                   <br />
-                  <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary' %>
+                  <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary login-dropdown' %>
                 </div>
               </div>
             <% end %>
           </ul>
         </div>
       </nav>
+      
       <% if notice.present? %>
-        <p class="alert alert-info"><%= notice %></p>
+        <p class="alert alert-info fade-in col-4 offset-4"><%= notice %></p>
       <% end %>
       <% if alert.present? %>
-        <p class="alert alert-danger"><%= alert %></p>
+        <p class="alert alert-danger col-4 offset-4"><%= alert %></p>
       <% end %>
+
     <%= yield %>
 
   </body>
