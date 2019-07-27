@@ -95,7 +95,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .nav-link {
   font-size: 1.4em;
-  color: #AFFF5A;
+
 }
 .btn-secondary {
   margin-top: 9px;
@@ -118,4 +118,13 @@ h1, h2, h3, h4, h5, h6 {
   100% {
     opacity: 0;
   }
+}
+
+.page-item.active .page-link {
+    background-color: #AFFF5A;
+    color: #C0C0C0;
+    border-color: black;
+}
+.page-link {
+  color: black;
 }
