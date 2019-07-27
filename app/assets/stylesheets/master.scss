@@ -69,9 +69,18 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: 20px;
 }
 
+.btn-secondary {
+  margin-top: 9px;
+}
+
 .login-dropdown {
   width: 100%;
   margin-bottom: 3px;
+  background-color: #E8E8E8;
+  color: black;
+  border: 1px solid;
+}
+.btn-primary {
   background-color: #E8E8E8;
   color: black;
   border: 1px solid;
@@ -97,9 +106,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.4em;
 
 }
-.btn-secondary {
-  margin-top: 9px;
-}
+
 .alert {
   animation: hideMe 5s 1;
   animation-fill-mode: forwards;
