@@ -6,13 +6,10 @@ class PlacesController < ApplicationController
     @places = Place.order(:name).page(params[:page])
   end
 
-  def new
-    @place = Place.new
-  end
 
 
   def create
-    current_user.places.create(place_params)
+    @place = current_user.places.create(place_params)
     redirect_to root_path
   end
 

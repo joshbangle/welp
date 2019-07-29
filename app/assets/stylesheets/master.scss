@@ -37,6 +37,9 @@ body{
   transform: scale(1.05);
 }
 
+a {
+  color: #787878;
+}
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
@@ -71,6 +74,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-secondary {
   margin-top: 9px;
+  margin-bottom: 8px;
 }
 
 .login-dropdown {
@@ -79,6 +83,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #E8E8E8;
   color: black;
   border: 1px solid;
+
 }
 .btn-primary {
   background-color: #E8E8E8;
@@ -107,6 +112,8 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+
+
 .alert {
   animation: hideMe 5s 1;
   animation-fill-mode: forwards;
@@ -134,4 +141,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 .page-link {
   color: black;
+}
+#myModalLabel {
+  margin: auto;
+}
+.modal-content {
+  padding-top: 0px;
+  text-align: center;
 }
