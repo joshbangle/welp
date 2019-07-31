@@ -71,6 +71,9 @@
           <!--####### LOG IN BUTTONS ###### -->
           <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
+              <li class="user-email">
+                Signed in as <%= current_user.email %>
+              </li>
               <li class="nav-item">
                 <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-secondary sign-out' %>
               </li>
