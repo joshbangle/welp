@@ -27,6 +27,14 @@ class PlacesController < ApplicationController
     redirect_to place_path(params[:id]) #I wanted it to link back to the edited place, not to the full index. How else will the user see if their edit went through easily?
   end
 
+
+  def destroy
+    @place = Place.find(params[:id])
+    @place.destroy
+    redirect_to root_path
+  end
+
+
   private
 
   def place_params
