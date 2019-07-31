@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
 
   def index
@@ -19,10 +19,18 @@ class PlacesController < ApplicationController
 
   def edit
     @place = Place.find(params[:id])
+
+    if @place.user != current_user
+      return render plain: "You cannot edit other people's places!", status: :forbidden
+    end
   end
 
   def update
     @place = Place.find(params[:id])
+    if @place.user != current_user
+      return render plain: "You cannot edit other people's places!", status: :forbidden
+    end
+
     @place.update_attributes(place_params)
     redirect_to place_path(params[:id]) #I wanted it to link back to the edited place, not to the full index. How else will the user see if their edit went through easily?
   end
@@ -30,6 +38,10 @@ class PlacesController < ApplicationController
 
   def destroy
     @place = Place.find(params[:id])
+    if @place.user != current_user
+      return render plain: "You cannot edit other people's places!", status: :forbidden
+    end
+    
     @place.destroy
     redirect_to root_path
   end
