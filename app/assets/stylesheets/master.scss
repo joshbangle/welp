@@ -4,7 +4,7 @@
 @import "font-awesome";
 
 body{
-  background: image_url('houndstooth-pattern.png');
+  background: #F0F0F0;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -33,6 +33,8 @@ body{
   padding: 20px;
   font-size: 1.2em;
   overflow: hidden;
+  width: 600px;
+  max-width: 80%;
 }
 .booyah-box:hover {
   transform: scale(1.05);
