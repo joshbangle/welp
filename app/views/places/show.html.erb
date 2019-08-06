@@ -38,17 +38,18 @@
 
                    <!--Comment Field-->
   <% if current_user %>
+  
   <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
     <%= f.input :message, label: 'Leave a comment!' %>
     <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
     <%= f.submit "Add your Comment", class: 'btn btn-primary' %>
-      <% end %>
+  <% end %>
   <% else %>
     <h3>Log in to leave a comment!</h3>
   <% end %>
 </div> 
-<h1 class="text-center">Comments</h1>
 
+<h1 class="text-center">Comments</h1>
 <% @place.comments.each do |comment| %>
   <div class= "new-box ml-auto mr-auto">
     <blockquote>
