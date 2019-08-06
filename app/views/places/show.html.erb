@@ -36,26 +36,53 @@
 <% end %>
 <br />
 
-                   <!--Comment Field-->
+                   <!--Comment Field-->  
   <% if current_user %>
-  
-  <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
-    <%= f.input :message, label: 'Leave a comment!' %>
-    <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
-    <%= f.submit "Add your Comment", class: 'btn btn-primary' %>
-  <% end %>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addComment">
+      Add a comment!
+    </button>
   <% else %>
     <h3>Log in to leave a comment!</h3>
   <% end %>
-</div> 
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addComment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content new-box mx-auto">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Add a comment</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
+          <%= f.input :message, label: 'Leave a comment!' %>
+          <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.submit "Add your Comment", class: 'btn btn-primary' %>
+        
+      </div>
+        <% end %>
+    </div>
+  </div>
+</div>
 
 <h1 class="text-center">Comments</h1>
 <% @place.comments.each do |comment| %>
-  <div class= "new-box ml-auto mr-auto">
+  <div class= "new-box mx-auto">
     <blockquote>
-      <b><%= comment.humanized_rating %></b> -
+      <% if comment.humanized_rating.present? %>
+        <b><%= comment.humanized_rating %></b> -
+      <% end %>
       <%= comment.message %>
       <small class="float-right"><%= comment.user.email %></small>
     </blockquote>
   </div>
   <% end %>
+  <!-- Button trigger modal -->
+
+

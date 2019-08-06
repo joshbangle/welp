@@ -28,7 +28,7 @@
 
       <% if user_signed_in? %>
 
-          <%= link_to  new_place_path, data: {toggle: 'modal', target: '#myModal'}, class: 'nav-item nav-link' do %>
+          <%= link_to  new_place_path, data: {toggle: 'modal', target: '#addPlace'}, class: 'nav-item nav-link' do %>
             <i class="fa fa-plus-circle"></i>
             New Place
             <% end %>
@@ -37,7 +37,7 @@
         <div class="col-lg-10 mx-auto"></div> <!-- this is to fill in the gap between logo and login when user isn't logged in, in order to hide new place button -->
       <% end %>
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addPlace" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content new-box">
           <div class="modal-header d-flex">
