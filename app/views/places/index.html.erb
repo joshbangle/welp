@@ -4,7 +4,7 @@
 
 <div class="container">
   <% @places.each do |place| %>
-    <div class="booyah-box col-6 offset-3">
+    <div class="booyah-box col-8 ml-auto mr-auto">
       <h1><%= link_to place.name, place_path(place) %></h1>
       <i><%= place.address %></i>
       <br /><br />
