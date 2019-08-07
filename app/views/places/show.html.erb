@@ -60,29 +60,32 @@
         <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
           <%= f.input :message, label: 'Leave a comment!' %>
           <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
-      </div>
+      
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <%= f.submit "Add your Comment", class: 'btn btn-primary' %>
-        
+      </div>  
       </div>
         <% end %>
     </div>
   </div>
 </div>
 
-<h1 class="text-center">Comments</h1>
-<% @place.comments.each do |comment| %>
+<% if @place.comments.present? %>
+  <h1 class="text-center">Comments</h1>
   <div class= "new-box mx-auto">
-    <blockquote>
-      <% if comment.humanized_rating.present? %>
-        <b><%= comment.humanized_rating %></b> -
-      <% end %>
-      <%= comment.message %>
-      <small class="float-right"><%= comment.user.email %></small>
-    </blockquote>
+  <% @place.comments.each do |comment| %> 
+      <blockquote>
+        <% if comment.humanized_rating.present? %>
+          <b><%= comment.humanized_rating %></b> -
+        <% end %>
+        <%= comment.message %>
+        <small class="float-right"><%= comment.user.email %></small>
+      </blockquote>
+      <hr />
+    <% end %>
   </div>
-  <% end %>
+<% end %>
   <!-- Button trigger modal -->
 
 
