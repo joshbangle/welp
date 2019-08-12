@@ -172,7 +172,10 @@ h1, h2, h3, h4, h5, h6 {
 #map {
   height: 300px;
 }
-
+.picture-box {
+  max-height: 565px;
+  overflow-y: scroll;
+}
 .image-resize {
   max-width: 300px;
 }
