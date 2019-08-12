@@ -1,51 +1,103 @@
-<div class="new-box col-10 ml-auto mr-auto">
-  <div class="float-right">  
-    <% if current_user && current_user == @place.user %>
-      <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary edit-btn' %>
-      <%= link_to 'Delete', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
-    <% end %>  
-  </div>
-<h1><%= @place.name %></h1>
-<i><%= @place.address %></i>
-<br /><br />
-<p><%= @place.description %></p>
+<div class="container">
+  <div class="row">
+  <div class="new-box col-5 ml-auto mr-auto">
+    <div class="float-right">  
+      <% if current_user && current_user == @place.user %>
+        <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary edit-btn' %>
+        <%= link_to 'Delete', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
+      <% end %>  
+    </div>
+  <h1><%= @place.name %></h1>
+  <i><%= @place.address %></i>
+  <br /><br />
+  <p><%= @place.description %></p>
 
 
-<% if @place.latitude.present? && @place.longitude.present? %>
-    <script>
+  <% if @place.latitude.present? && @place.longitude.present? %>
+      <script>
 
-      function initMap() {
-        var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
+        function initMap() {
+          var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
 
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 18,
-          center: myLatLng
-        });
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 18,
+            center: myLatLng
+          });
 
-        var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          title: 'Hello World!'
-        });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgEPDSqAvZgF0NebRIZJNUvtmLwJrLNPs&callback=initMap">
-    </script>
-    <div id="map"></div>
-<% end %>
-<br />
-
-                   <!--Comment Field-->  
-  <% if current_user %>
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addComment">
-      Add a comment!
-    </button>
-  <% else %>
-    <h3>Log in to leave a comment!</h3>
+          var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Hello World!'
+          });
+        }
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgEPDSqAvZgF0NebRIZJNUvtmLwJrLNPs&callback=initMap">
+      </script>
+      <div id="map"></div>
   <% end %>
+  <br />
+
+                     <!--Comment Field-->  
+    <% if current_user %>
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addComment">
+        Add a comment!
+      </button>
+      <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#photoModal">
+        Add a photo!
+      </button>
+    <% else %>
+      <h3>Log in to leave a comment!</h3>
+    <% end %>
+  </div>
+
+
+  <!-- Photo Modal -->
+  <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content new-box">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add a photo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+            <%= f.input :picture %>
+            <%= f.input :caption, label: 'Caption your photo!' %>
+            
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "Add your photo", class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Photo Data -->
+
+      <%if @place.photos.present? %>
+        <div class="col-5 new-box picture-box">
+          <% @place.photos.each do |photo| %>
+            <ul>
+            <li><%= image_tag photo.picture.url, class: 'image-resize' %>
+            <p><%= photo.caption %></p>
+          </li>
+          <hr />
+        </ul>
+          <% end %>
+        </div>
+      <% end %>
+
+
 </div>
 
+</div>
 <!-- Modal -->
 <div class="modal fade" id="addComment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
