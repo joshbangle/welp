@@ -17,7 +17,9 @@ body{
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   margin-top: 10px;
   margin-bottom: 15px;
-  padding: 20px;
+  padding-bottom: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
   font-size: 1.2em;
   transition: all .1s ease-in-out;
   width: 600px;
@@ -177,7 +179,9 @@ h1, h2, h3, h4, h5, h6 {
   overflow-y: scroll;
 }
 .image-resize {
-  max-width: 300px;
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
 }
 ul {
   list-style-type: none;
@@ -196,4 +200,14 @@ ul {
   width: 100%;
   position: absolute;
   left: 0;
+}
+.place-name, .place-addy, .place-disc, .place-email {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.place-name {
+  margin-top: 10px;
+}
+.rating-placement {
+  margin-left: 4px;
 }
