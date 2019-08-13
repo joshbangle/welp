@@ -40,6 +40,21 @@ body{
   width: 600px;
   max-width: 80%;
 }
+.profile-box {
+  -moz-box-shadow: 2px 2px 3px 0 #d0d0d0;
+  -webkit-box-shadow: 2px 2px 3px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: #D3D3D3;
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding: 20px;
+  font-size: 1.2em;
+  overflow: hidden;
+  width: 800px;
+  max-width: 80%;
+}
 .booyah-box:hover {
   transform: scale(1.05);
 }
@@ -210,4 +225,7 @@ ul {
 }
 .rating-placement {
   margin-left: 4px;
+}
+.places-spaces {
+  margin: 5px 0px 5px 0px;
 }
