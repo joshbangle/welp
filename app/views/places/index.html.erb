@@ -45,41 +45,61 @@
 <!-- Place Display -->
 
 <div class="container">
-  <div class="row">
-  <% @places.each do |place| %>
+  <div class="row cards">
+    <% @places.each do |place| %>
 
-    <div class="booyah-box col-sm-5 col-12 ml-auto mr-auto">
-      <h1 class="place-name"><%= link_to place.name, place_path(place) %></h1>
-      <i class="place-addy"><%= place.address %></i>
-      <% if place.photos.present? %>
-        <%= image_tag place.photos.first.picture.url, class: 'image-resize d-block img-fluid' %>
-      <% end %>
-      <br />
-      <p class="place-disc"><%= place.description %></p>
+      <div class="booyah-box col-sm-4 col-12">
+        <h1 class="place-name"><%= link_to place.name, place_path(place) %></h1>
+        <i class="place-addy"><%= place.address %></i>
+        <% if place.photos.present? %>
+          <%= image_tag place.photos.first.picture.url, class: 'image-resize d-block img-fluid' %>
+        <% end %>
+        <br />
+        <p class="place-disc"><%= place.description %></p>
 
 
-      <!-- Last Comment -->
-    <% if place.comments.present? %>
-    <hr />
-      <div class= "col-12">
-          <blockquote>
-            <% if place.comments.last.humanized_rating.present? %>
-              <b class="rating-placement"><%= place.comments.last.humanized_rating %></b> -
-            <% end %>
-            <%= place.comments.last.message %>
-            <small class="float-right">-<%= place.comments.last.user.email %></small>
-          </blockquote>
+        <!-- Last Comment -->
+        <% if place.comments.present? %>
+        <hr />
+          <div class= "col-12">
+            <blockquote>
+              <% if place.comments.last.humanized_rating.present? %>
+                <b class="rating-placement"><%= place.comments.last.humanized_rating %></b> -
+              <% end %>
+              <%= place.comments.last.message %>
+              <small class="float-right">-<%= place.comments.last.user.email %></small>
+            </blockquote>
+          </div>
+        <% end %>
+
+
+
       </div>
     <% end %>
+  </div>
+</div>
 
-      <!--Created by-->
-      <% if place.user.present? %>
-        <small class="place-email">Submitted by <%= place.user.email %></small>
-      <% end %>
-    </div>
-  <% end %>
-</div>
-</div>
 <div class="d-flex justify-content-center page-buttons">
   <%= paginate @places %>
 </div> 
+<div id="footer">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-12 col-sm-6">
+        <b>Contact</b>
+        <br />
+        joshua.bangle@gmail.com
+      </div>
+      <div class="col-12 col-sm-6 socials">
+        <b>Social</b>
+        <br />
+        <%= link_to 'https://github.com/joshua-bangle' do %>
+          <span class="fa fa-github-square fa-3x"></span>
+        <% end %>
+        <%= link_to 'https://twitter.com/KnoobLord' do %>
+        <span class="fa fa-twitter-square fa-3x"></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

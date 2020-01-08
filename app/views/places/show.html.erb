@@ -127,19 +127,19 @@
 
 <% if @place.comments.present? %>
   <h1 class="text-center">Comments</h1>
-  
+  <div class= "comment-box mx-auto text-center">
   <% @place.comments.each do |comment| %> 
-  <div class= "new-box mx-auto">
+  
       <blockquote>
         <% if comment.humanized_rating.present? %>
           <b><%= comment.humanized_rating %></b> -
         <% end %>
         <%= comment.message %>
-        <small class="float-right"><%= comment.user.email %></small>
+        <small> -<%= comment.user.email %></small>
       </blockquote>
-    </div>  
+      <hr/>
     <% end %>
-  
+  </div>
 <% end %>
   <!-- Button trigger modal -->
 
