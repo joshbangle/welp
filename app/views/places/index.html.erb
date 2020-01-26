@@ -48,7 +48,7 @@
   <div class="row cards">
     <% @places.each do |place| %>
 
-      <div class="booyah-box col-sm-4 col-12">
+      <div class="booyah-box col-sm-5 col-12">
         <h1 class="place-name"><%= link_to place.name, place_path(place) %></h1>
         <i class="place-addy"><%= place.address %></i>
         <% if place.photos.present? %>
