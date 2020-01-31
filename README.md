@@ -2,6 +2,8 @@
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)](https://forthebadge.com)
 
+![Landing](app/readmeImages/welp.png)
+
   ## Focuses
   * Google Maps API integration
   * Learning bootstrap grid
